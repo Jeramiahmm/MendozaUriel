@@ -54,7 +54,7 @@ export const experiences: Experience[] = [
     period: "Jan 2026 — Present",
     logoId: "nasa",
     highlights: [
-      "Designed and proposed a $10,000 autonomous Mars rover system using 360-degree AEOS cameras and reinforcement learning for continuous terrain mapping without Earth command center intervention, presented directly to NASA engineers.",
+      "Designed and proposed an autonomous Mars rover system using 360-degree AEOS cameras and reinforcement learning for continuous terrain mapping without Earth command center intervention, presented to NASA engineers.",
       "Engineered LIDAR-integrated navigation architecture with onboard decision-making, reducing mission cost and weight while eliminating signal-delay downtime through autonomous path planning.",
     ],
     status: "ACTIVE",
