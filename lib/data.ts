@@ -129,24 +129,6 @@ export const certifications: Certification[] = [
       status: "Verified",
     },
   },
-  {
-    issuer: "Stanford University",
-    name: "MACHINE LEARNING",
-    date: "June 2025",
-    backDetails: {
-      skills: ["Supervised Learning", "Neural Networks", "Recommender Systems", "Anomaly Detection"],
-      status: "Completed",
-    },
-  },
-  {
-    issuer: "IBM",
-    name: "DATA SCIENCE PROFESSIONAL",
-    date: "August 2025",
-    backDetails: {
-      skills: ["Data Analysis", "Statistical Modeling", "Python for DS", "ML Pipelines"],
-      status: "Completed",
-    },
-  },
 ];
 
 export const skillCategories: SkillCategory[] = [
@@ -211,7 +193,6 @@ export const contactInfo = {
   currently: [
     "NASA L'SPACE Researcher",
     "Purdue Data Mine",
-    "CU Boulder Treasurer",
     "Incoming @ Lumen",
   ],
   location: {

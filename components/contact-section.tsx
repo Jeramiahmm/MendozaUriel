@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
-import { contactInfo, certifications } from "@/lib/data";
+import { contactInfo } from "@/lib/data";
 import { ScrambleText } from "@/components/scramble-text";
 import { ProfilePhoto } from "@/components/profile-photo";
 
@@ -131,14 +131,12 @@ export function ContactSection() {
               Certifications
             </h3>
             <ul className="space-y-3">
-              {certifications.map((cert) => (
-                <li
-                  key={cert.name}
-                  className="font-mono text-xs text-muted-foreground"
-                >
-                  {cert.issuer} {cert.name.split(" ").slice(-1)[0]}
-                </li>
-              ))}
+              <li className="font-mono text-xs text-muted-foreground">
+                AWS Cloud Practitioner
+              </li>
+              <li className="font-mono text-xs text-muted-foreground">
+                CompTIA Security+
+              </li>
             </ul>
           </div>
 

@@ -125,7 +125,7 @@ export function HeroSection() {
         <div className="mb-4">
           <SplitFlapText
             text="URIEL MENDOZA"
-            className="text-5xl leading-none md:text-8xl lg:text-9xl"
+            className="text-4xl leading-none sm:text-5xl md:text-8xl lg:text-9xl"
             delay={300}
             charDelay={50}
             duration={500}
@@ -134,7 +134,7 @@ export function HeroSection() {
 
         {/* Subtitle */}
         <div className="hero-subtitle mb-8">
-          <span className="font-display text-2xl tracking-tight text-muted-foreground md:text-4xl">
+          <span className="font-display text-xl tracking-tight text-muted-foreground sm:text-2xl md:text-4xl">
             CS & CYBERSECURITY @ CU BOULDER
           </span>
         </div>
@@ -200,7 +200,7 @@ export function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="hero-scroll absolute bottom-8 left-1/2 -translate-x-1/2">
+      <div className="hero-scroll absolute bottom-16 left-1/2 -translate-x-1/2 md:bottom-8">
         <div className="flex flex-col items-center gap-2">
           <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground">
             Scroll
