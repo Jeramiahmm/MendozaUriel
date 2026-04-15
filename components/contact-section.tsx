@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { contactInfo, certifications } from "@/lib/data";
 import { ScrambleText } from "@/components/scramble-text";
+import { ProfilePhoto } from "@/components/profile-photo";
 
 export function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -16,8 +17,8 @@ export function ContactSection() {
         {
           y: 0,
           opacity: 1,
-          duration: 0.8,
-          stagger: 0.1,
+          duration: 0.5,
+          stagger: 0.08,
           ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -37,13 +38,18 @@ export function ContactSection() {
       className="border-t border-border"
     >
       <div className="py-32 pl-6 pr-6 md:pl-28 md:pr-12">
-        {/* Header */}
-        <span className="mb-4 block font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
-          05 / Contact
-        </span>
-        <h2 className="mb-16 font-display text-5xl tracking-tight md:text-7xl">
-          GET IN TOUCH
-        </h2>
+        {/* Header with photo */}
+        <div className="mb-16 flex items-center gap-6">
+          <ProfilePhoto size="md" />
+          <div>
+            <span className="mb-2 block font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
+              05 / Contact
+            </span>
+            <h2 className="font-display text-5xl tracking-tight md:text-7xl">
+              GET IN TOUCH
+            </h2>
+          </div>
+        </div>
 
         {/* Multi-column grid */}
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
@@ -57,6 +63,7 @@ export function ContactSection() {
                 <a
                   href={`mailto:${contactInfo.email}`}
                   className="font-mono text-xs text-muted-foreground transition-colors hover:text-accent"
+                  aria-label="Send email"
                 >
                   <ScrambleText text={contactInfo.email} />
                 </a>
@@ -67,6 +74,7 @@ export function ContactSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-mono text-xs text-muted-foreground transition-colors hover:text-accent"
+                  aria-label="Visit LinkedIn"
                 >
                   <ScrambleText text={contactInfo.linkedin} />
                 </a>
@@ -77,6 +85,7 @@ export function ContactSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-mono text-xs text-muted-foreground transition-colors hover:text-accent"
+                  aria-label="Visit GitHub"
                 >
                   <ScrambleText text={contactInfo.github} />
                 </a>
@@ -87,6 +96,7 @@ export function ContactSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-mono text-xs text-muted-foreground transition-colors hover:text-accent"
+                  aria-label="Visit website"
                 >
                   <ScrambleText text={contactInfo.website} />
                 </a>
@@ -166,6 +176,31 @@ export function ContactSection() {
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* Resume download */}
+        <div className="mt-16 border-t border-border pt-8">
+          <a
+            href="/resume.pdf"
+            download
+            className="inline-flex items-center gap-3 border border-accent px-6 py-3 font-mono text-xs uppercase tracking-[0.2em] text-accent transition-colors hover:bg-accent hover:text-background"
+            aria-label="Download resume PDF"
+          >
+            Download Resume
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="square"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+          </a>
         </div>
       </div>
 

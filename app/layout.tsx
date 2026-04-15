@@ -37,6 +37,29 @@ export const metadata: Metadata = {
     "machine learning",
     "CU Boulder",
   ],
+  metadataBase: new URL("https://mendozauriel.com"),
+  openGraph: {
+    title: "Uriel Jeramiah Mendoza | Portfolio",
+    description:
+      "CS & Cybersecurity @ CU Boulder. NASA researcher, incoming Lumen Technologies intern, L3Harris collaborator.",
+    url: "https://mendozauriel.com",
+    siteName: "Uriel Mendoza Portfolio",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Uriel Jeramiah Mendoza | Portfolio",
+    description:
+      "CS & Cybersecurity @ CU Boulder. NASA researcher, incoming Lumen Technologies intern.",
+  },
+  icons: {
+    icon: "/favicon.svg",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -51,6 +74,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="font-sans antialiased">
+        <a href="#main-content" className="skip-to-content">
+          Skip to main content
+        </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

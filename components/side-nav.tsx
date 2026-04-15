@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { navItems } from "@/lib/data";
 import { ScrambleText } from "@/components/scramble-text";
+import { ProfilePhoto } from "@/components/profile-photo";
 import { cn } from "@/lib/utils";
 
 export function SideNav() {
@@ -40,7 +41,14 @@ export function SideNav() {
   };
 
   return (
-    <nav className="fixed left-6 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-start gap-6 md:flex">
+    <nav
+      className="fixed left-6 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-start gap-6 md:flex"
+      role="navigation"
+      aria-label="Section navigation"
+    >
+      <div className="mb-4">
+        <ProfilePhoto size="sm" />
+      </div>
       {navItems.map(({ id, label }) => (
         <button
           key={id}
@@ -48,6 +56,7 @@ export function SideNav() {
           onMouseEnter={() => setHoveredItem(id)}
           onMouseLeave={() => setHoveredItem(null)}
           className="group flex items-center gap-3"
+          aria-label={`Go to ${label} section`}
         >
           <span
             className={cn(

@@ -13,6 +13,7 @@ export interface Project {
   description: string;
   colSpan: string;
   rowSpan: string;
+  pattern: "neural" | "transit" | "orbital";
 }
 
 export interface Certification {
@@ -20,6 +21,10 @@ export interface Certification {
   name: string;
   date: string;
   newest?: boolean;
+  backDetails: {
+    skills: string[];
+    status: string;
+  };
 }
 
 export interface SkillCategory {
@@ -79,25 +84,28 @@ export const projects: Project[] = [
     title: "NFL Stats Prediction Model",
     tech: "Python / TensorFlow / XGBoost",
     description:
-      "87% prediction accuracy on NFL player performance using 5 years of historical data. Accelerated training 8x — from 6 hours to 45 minutes — via NVIDIA GPU parallel computation.",
+      "{{87%}} prediction accuracy on NFL player performance using 5 years of historical data. Accelerated training {{8x}} — from 6 hours to 45 minutes — via NVIDIA GPU parallel computation.",
     colSpan: "md:col-span-2",
     rowSpan: "row-span-2",
+    pattern: "neural",
   },
   {
     title: "Smart Transit Greeley",
     tech: "Python / ML / Route Optimization",
     description:
-      "Urban transit optimization for 114,000+ residents. ML-simulated ridership projecting 33% CO2 reduction. Results delivered to Greeley City Council as actionable policy.",
+      "Urban transit optimization for {{114,000+}} residents. ML-simulated ridership projecting {{33%}} CO2 reduction. Results delivered to Greeley City Council as actionable policy.",
     colSpan: "md:col-span-1",
     rowSpan: "row-span-2",
+    pattern: "transit",
   },
   {
     title: "Satellite Telemetry Anomaly Detection",
     tech: "Python / TensorFlow / SPARTA / MITRE ATT&CK",
     description:
-      "Real-time satellite anomaly detection at 98% accuracy. Secure multi-GB data pipelines for embedded aerospace systems. Built in collaboration with L3Harris engineers.",
+      "Real-time satellite anomaly detection at {{98%}} accuracy. Secure multi-GB data pipelines for embedded aerospace systems. Built in collaboration with L3Harris engineers.",
     colSpan: "md:col-span-3",
     rowSpan: "row-span-1",
+    pattern: "orbital",
   },
 ];
 
@@ -107,21 +115,37 @@ export const certifications: Certification[] = [
     name: "AWS CLOUD PRACTITIONER",
     date: "April 2026",
     newest: true,
+    backDetails: {
+      skills: ["Cloud Architecture", "AWS Core Services", "Security & Compliance", "Billing & Pricing"],
+      status: "Verified",
+    },
   },
   {
     issuer: "CompTIA",
     name: "SECURITY+",
     date: "February 2026",
+    backDetails: {
+      skills: ["Threat Analysis", "Network Security", "Cryptography", "Risk Management"],
+      status: "Verified",
+    },
   },
   {
     issuer: "Stanford University",
     name: "MACHINE LEARNING",
     date: "June 2025",
+    backDetails: {
+      skills: ["Supervised Learning", "Neural Networks", "Recommender Systems", "Anomaly Detection"],
+      status: "Completed",
+    },
   },
   {
     issuer: "IBM",
     name: "DATA SCIENCE PROFESSIONAL",
     date: "August 2025",
+    backDetails: {
+      skills: ["Data Analysis", "Statistical Modeling", "Python for DS", "ML Pipelines"],
+      status: "Completed",
+    },
   },
 ];
 

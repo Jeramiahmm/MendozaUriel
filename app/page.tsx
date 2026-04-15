@@ -1,4 +1,5 @@
 import { SideNav } from "@/components/side-nav";
+import { MobileNav } from "@/components/mobile-nav";
 import { HeroSection } from "@/components/hero-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { ProjectsSection } from "@/components/projects-section";
@@ -8,8 +9,9 @@ import { ContactSection } from "@/components/contact-section";
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content">
       <SideNav />
+      <MobileNav />
       <HeroSection />
       <ExperienceSection />
       <ProjectsSection />
