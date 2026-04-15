@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface ProfilePhotoProps {
@@ -14,10 +15,10 @@ export function ProfilePhoto({ size = "md", className }: ProfilePhotoProps) {
     lg: "w-36 h-36 md:w-44 md:h-44",
   };
 
-  const fontSize = {
-    sm: "text-sm",
-    md: "text-2xl",
-    lg: "text-4xl md:text-5xl",
+  const imageSizes = {
+    sm: 40,
+    md: 96,
+    lg: 176,
   };
 
   return (
@@ -28,24 +29,24 @@ export function ProfilePhoto({ size = "md", className }: ProfilePhotoProps) {
         className
       )}
       role="img"
-      aria-label="Uriel Mendoza profile photo placeholder"
+      aria-label="Uriel Mendoza profile photo"
       style={{
-        clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
-        background: "linear-gradient(135deg, var(--accent) 0%, var(--background) 80%)",
+        clipPath:
+          "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
       }}
     >
-      <span
-        className={cn(
-          "font-display tracking-tight text-background/90",
-          fontSize[size]
-        )}
-      >
-        UM
-      </span>
+      <Image
+        src="/profile.jpeg"
+        alt="Uriel Mendoza"
+        width={imageSizes[size]}
+        height={imageSizes[size]}
+        className="h-full w-full object-cover"
+        priority={size === "lg"}
+      />
 
-      {/* Subtle inner glow */}
+      {/* Subtle accent border glow */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="pointer-events-none absolute inset-0 opacity-10"
         style={{
           background:
             "radial-gradient(circle at 30% 30%, var(--accent), transparent 70%)",
