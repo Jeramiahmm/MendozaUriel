@@ -6,13 +6,22 @@ import { experiences } from "@/lib/data";
 import { ScrambleText } from "@/components/scramble-text";
 import { cn } from "@/lib/utils";
 
+// Map logo IDs to their actual file extensions
+const logoFiles: Record<string, string> = {
+  lumen: "lumen.png",
+  nasa: "nasa.png",
+  l3harris: "l3harris.png",
+  unc: "unc.jpeg",
+};
+
 // Company logo image with fallback
 function CompanyLogo({ id, company }: { id: string; company: string }) {
+  const file = logoFiles[id] || `${id}.png`;
   return (
     <div className="flex-shrink-0">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={`/logos/${id}.png`}
+        src={`/logos/${file}`}
         alt={`${company} logo`}
         className="h-10 w-10 object-contain"
         onError={(e) => {
