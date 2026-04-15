@@ -4,13 +4,25 @@ import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { projects } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { StatCounter } from "@/components/stat-counter";
 
-// Parse {{metric}} markers into bold accent spans
+// Parse {{metric}} markers into animated stat counters or bold accent spans
 function renderDescription(text: string) {
   const parts = text.split(/(\{\{.*?\}\})/g);
   return parts.map((part, i) => {
     if (part.startsWith("{{") && part.endsWith("}}")) {
       const metric = part.slice(2, -2);
+      // Try to extract a number for animated counting
+      const numMatch = metric.match(/^(\d+)/);
+      if (numMatch) {
+        const num = parseInt(numMatch[1], 10);
+        const rest = metric.slice(numMatch[1].length);
+        return (
+          <strong key={i} className="font-semibold text-accent">
+            <StatCounter value={num} suffix={rest} />
+          </strong>
+        );
+      }
       return (
         <strong key={i} className="font-semibold text-accent">
           {metric}
@@ -299,7 +311,7 @@ export function ProjectsSection() {
       </div>
 
       {/* Asymmetric grid */}
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:auto-rows-[300px]">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 md:auto-rows-[250px] lg:auto-rows-[300px]">
         {projects.map((project) => (
           <ProjectCard
             key={project.title}

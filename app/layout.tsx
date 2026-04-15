@@ -28,7 +28,7 @@ const bebasNeue = Bebas_Neue({
 export const metadata: Metadata = {
   title: "Uriel Jeramiah Mendoza | Portfolio",
   description:
-    "CS & Cybersecurity student at CU Boulder. Building secure systems at the intersection of machine learning, network engineering, and cloud infrastructure.",
+    "CS & Cybersecurity @ CU Boulder. NASA researcher, incoming Lumen Technologies intern, L3Harris collaborator. Building secure systems with ML and cloud infrastructure.",
   keywords: [
     "Uriel Mendoza",
     "portfolio",
@@ -36,8 +36,13 @@ export const metadata: Metadata = {
     "cybersecurity",
     "machine learning",
     "CU Boulder",
+    "NASA",
+    "Lumen Technologies",
   ],
   metadataBase: new URL("https://mendozauriel.com"),
+  alternates: {
+    canonical: "https://mendozauriel.com",
+  },
   openGraph: {
     title: "Uriel Jeramiah Mendoza | Portfolio",
     description:
@@ -60,6 +65,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  other: {
+    "theme-color": "#141414",
+  },
 };
 
 export default function RootLayout({
@@ -74,13 +82,40 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Uriel Jeramiah Mendoza",
+              url: "https://mendozauriel.com",
+              email: "jeramiahblinks@gmail.com",
+              jobTitle: "CS & Cybersecurity Student",
+              sameAs: [
+                "https://linkedin.com/in/uriel-mendoza",
+                "https://github.com/uriel-mendoza",
+              ],
+              alumniOf: {
+                "@type": "CollegeOrUniversity",
+                name: "University of Colorado Boulder",
+              },
+              knowsAbout: [
+                "Machine Learning",
+                "Cybersecurity",
+                "Network Engineering",
+                "Cloud Computing",
+              ],
+            }),
+          }}
+        />
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          forcedTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <SmoothScroll>{children}</SmoothScroll>

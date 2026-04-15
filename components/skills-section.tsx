@@ -167,7 +167,7 @@ export function SkillsSection() {
         </h2>
 
         {/* Skill groups */}
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {skillGroups.map((group) => (
             <div key={group.category}>
               <h3 className="skill-category-label mb-6 font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
