@@ -77,14 +77,14 @@ export function HeroBackground() {
       {/* Layer 1: 3D Morphing Wireframe */}
       <svg
         ref={wireframeRef}
-        className="absolute -right-20 top-1/2 -translate-y-1/2 opacity-[0.18]"
+        className="absolute -right-20 top-1/2 -translate-y-1/2 opacity-[0.30]"
         width="700"
         height="700"
         viewBox="0 0 400 400"
         fill="none"
       >
         {/* Icosahedron-like wireframe */}
-        <g stroke="var(--accent)" strokeWidth="1">
+        <g stroke="var(--accent)" strokeWidth="1.5">
           {/* Outer pentagon */}
           <polygon points="200,40 350,140 310,310 90,310 50,140" />
           {/* Inner pentagon (rotated) */}
@@ -119,7 +119,7 @@ export function HeroBackground() {
 
       {/* Layer 2: Flowing SVG Lines */}
       <svg
-        className="absolute inset-0 h-full w-full opacity-[0.22]"
+        className="absolute inset-0 h-full w-full opacity-[0.35]"
         preserveAspectRatio="none"
         viewBox="0 0 1440 900"
         fill="none"
@@ -157,7 +157,7 @@ export function HeroBackground() {
       {/* Layer 3: Giant "UM" Outline Typography */}
       <svg
         ref={umRef}
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.08]"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.14]"
         width="100%"
         height="80vh"
         viewBox="0 0 500 300"

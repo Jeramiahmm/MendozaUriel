@@ -185,8 +185,8 @@ export const skillCategories: SkillCategory[] = [
 
 export const contactInfo = {
   email: "jeramiahblinks@gmail.com",
-  linkedin: "linkedin.com/in/uriel-mendoza",
-  github: "github.com/uriel-mendoza",
+  linkedin: "www.linkedin.com/in/uriel-mendoza-94t",
+  github: "github.com/Jeramiahmm",
   website: "mendozauriel.com",
   education: {
     school: "University of Colorado Boulder",

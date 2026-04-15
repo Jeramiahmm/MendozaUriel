@@ -141,9 +141,10 @@ export function HeroSection() {
 
         {/* Body paragraph */}
         <p className="hero-bio mb-10 max-w-2xl font-mono text-xs leading-relaxed text-muted-foreground md:text-sm">
-          Building secure systems at the intersection of{" "}
-          <HighlightText>machine learning</HighlightText>, network engineering,
-          and cloud infrastructure. Incoming Network Engineer at Lumen
+          Software engineer building at the intersection of{" "}
+          <HighlightText>machine learning</HighlightText>, cloud infrastructure,
+          and cybersecurity. From full-stack development to satellite anomaly
+          detection — I ship production systems that scale. Incoming at Lumen
           Technologies.
         </p>
 
@@ -171,7 +172,7 @@ export function HeroSection() {
         {/* Social links */}
         <div className="hero-social flex items-center gap-6">
           <a
-            href="https://github.com/uriel-mendoza"
+            href="https://github.com/Jeramiahmm"
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-accent"
@@ -181,7 +182,7 @@ export function HeroSection() {
           </a>
           <span className="text-muted-foreground">/</span>
           <a
-            href="https://linkedin.com/in/uriel-mendoza"
+            href="https://www.linkedin.com/in/uriel-mendoza-94t/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-accent"
