@@ -23,14 +23,14 @@ function CompanyLogo({ id, company }: { id: string; company: string }) {
       <img
         src={`/logos/${file}`}
         alt={`${company} logo`}
-        className="h-10 w-10 object-contain"
+        className="h-14 w-14 object-contain"
         onError={(e) => {
           e.currentTarget.style.display = "none";
           const fallback = e.currentTarget.nextElementSibling as HTMLElement;
           if (fallback) fallback.classList.remove("hidden");
         }}
       />
-      <div className="hidden h-10 w-10 flex items-center justify-center border border-accent/40 font-mono text-[10px] text-accent/60">
+      <div className="hidden h-14 w-14 flex items-center justify-center border border-accent/40 font-mono text-[10px] text-accent/60">
         LOGO
       </div>
     </div>
