@@ -6,54 +6,26 @@ import { experiences } from "@/lib/data";
 import { ScrambleText } from "@/components/scramble-text";
 import { cn } from "@/lib/utils";
 
-// Company logo SVG components
-function CompanyLogo({ id }: { id: string }) {
-  const logos: Record<string, React.ReactNode> = {
-    lumen: (
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-        <circle cx="24" cy="24" r="20" stroke="var(--accent)" strokeWidth="1.5" strokeOpacity="0.4" />
-        <circle cx="24" cy="24" r="12" stroke="var(--accent)" strokeWidth="1" strokeOpacity="0.3" />
-        <circle cx="24" cy="24" r="4" fill="var(--accent)" fillOpacity="0.6" />
-        <line x1="24" y1="4" x2="24" y2="12" stroke="var(--accent)" strokeWidth="1" strokeOpacity="0.5" />
-        <line x1="24" y1="36" x2="24" y2="44" stroke="var(--accent)" strokeWidth="1" strokeOpacity="0.5" />
-        <line x1="4" y1="24" x2="12" y2="24" stroke="var(--accent)" strokeWidth="1" strokeOpacity="0.5" />
-        <line x1="36" y1="24" x2="44" y2="24" stroke="var(--accent)" strokeWidth="1" strokeOpacity="0.5" />
-        <text x="24" y="28" textAnchor="middle" fill="var(--accent)" style={{ fontSize: "7px", fontFamily: "var(--font-mono)" }} fillOpacity="0.8">LMN</text>
-      </svg>
-    ),
-    nasa: (
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-        <circle cx="24" cy="24" r="20" stroke="var(--accent)" strokeWidth="1.5" strokeOpacity="0.4" />
-        <ellipse cx="24" cy="24" rx="20" ry="8" stroke="var(--accent)" strokeWidth="1" strokeOpacity="0.4" transform="rotate(-20, 24, 24)" />
-        <circle cx="24" cy="24" r="3" fill="var(--accent)" fillOpacity="0.5" />
-        <circle cx="38" cy="16" r="1.5" fill="var(--accent)" fillOpacity="0.6" />
-        <text x="24" y="28" textAnchor="middle" fill="var(--accent)" style={{ fontSize: "6px", fontFamily: "var(--font-mono)" }} fillOpacity="0.8">NASA</text>
-      </svg>
-    ),
-    l3harris: (
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-        <polygon points="24,4 44,14 44,34 24,44 4,34 4,14" stroke="var(--accent)" strokeWidth="1.5" strokeOpacity="0.4" fill="none" />
-        <polygon points="24,12 36,18 36,30 24,36 12,30 12,18" stroke="var(--accent)" strokeWidth="1" strokeOpacity="0.3" fill="none" />
-        <circle cx="24" cy="24" r="3" fill="var(--accent)" fillOpacity="0.5" />
-        <line x1="24" y1="4" x2="24" y2="12" stroke="var(--accent)" strokeWidth="0.8" strokeOpacity="0.4" />
-        <line x1="24" y1="36" x2="24" y2="44" stroke="var(--accent)" strokeWidth="0.8" strokeOpacity="0.4" />
-        <text x="24" y="28" textAnchor="middle" fill="var(--accent)" style={{ fontSize: "5.5px", fontFamily: "var(--font-mono)" }} fillOpacity="0.8">L3H</text>
-      </svg>
-    ),
-    unc: (
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-        <rect x="6" y="6" width="36" height="36" stroke="var(--accent)" strokeWidth="1.5" strokeOpacity="0.4" fill="none" />
-        <rect x="14" y="14" width="20" height="20" stroke="var(--accent)" strokeWidth="1" strokeOpacity="0.3" fill="none" />
-        <line x1="6" y1="6" x2="14" y2="14" stroke="var(--accent)" strokeWidth="0.8" strokeOpacity="0.3" />
-        <line x1="42" y1="6" x2="34" y2="14" stroke="var(--accent)" strokeWidth="0.8" strokeOpacity="0.3" />
-        <line x1="6" y1="42" x2="14" y2="34" stroke="var(--accent)" strokeWidth="0.8" strokeOpacity="0.3" />
-        <line x1="42" y1="42" x2="34" y2="34" stroke="var(--accent)" strokeWidth="0.8" strokeOpacity="0.3" />
-        <text x="24" y="27" textAnchor="middle" fill="var(--accent)" style={{ fontSize: "6px", fontFamily: "var(--font-mono)" }} fillOpacity="0.8">UNC</text>
-      </svg>
-    ),
-  };
-
-  return <div className="flex-shrink-0">{logos[id] || null}</div>;
+// Company logo image with fallback
+function CompanyLogo({ id, company }: { id: string; company: string }) {
+  return (
+    <div className="flex-shrink-0">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`/logos/${id}.png`}
+        alt={`${company} logo`}
+        className="h-10 w-10 object-contain"
+        onError={(e) => {
+          e.currentTarget.style.display = "none";
+          const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+          if (fallback) fallback.classList.remove("hidden");
+        }}
+      />
+      <div className="hidden h-10 w-10 flex items-center justify-center border border-accent/40 font-mono text-[10px] text-accent/60">
+        LOGO
+      </div>
+    </div>
+  );
 }
 
 function StatusTag({ status }: { status: string }) {
@@ -270,7 +242,7 @@ export function ExperienceSection() {
               {/* Company logo + role + status */}
               <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
                 <div className="flex items-center gap-3">
-                  <CompanyLogo id={exp.logoId} />
+                  <CompanyLogo id={exp.logoId} company={exp.company} />
                   <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
                     {exp.role}
                   </span>
@@ -298,7 +270,6 @@ export function ExperienceSection() {
                     key={j}
                     className="max-w-3xl font-mono text-xs leading-relaxed text-muted-foreground md:text-sm"
                   >
-                    <span className="mr-2 text-accent">--</span>
                     {highlight}
                   </p>
                 ))}

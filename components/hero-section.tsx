@@ -134,18 +134,18 @@ export function HeroSection() {
 
         {/* Subtitle */}
         <div className="hero-subtitle mb-8">
-          <span className="font-display text-xl tracking-tight text-muted-foreground sm:text-2xl md:text-4xl">
+          <span className="font-display text-xl tracking-tight text-foreground/75 sm:text-2xl md:text-4xl">
             CS & CYBERSECURITY @ CU BOULDER
           </span>
         </div>
 
         {/* Body paragraph */}
         <p className="hero-bio mb-10 max-w-2xl font-mono text-xs leading-relaxed text-muted-foreground md:text-sm">
-          Software engineer building at the intersection of{" "}
+          Full-stack software engineer specializing in{" "}
           <HighlightText>machine learning</HighlightText>, cloud infrastructure,
-          and cybersecurity. From full-stack development to satellite anomaly
-          detection — I ship production systems that scale. Incoming at Lumen
-          Technologies.
+          and security systems. NASA researcher, L3Harris collaborator, and
+          incoming engineer at Lumen Technologies. I build production systems
+          that protect, optimize, and scale.
         </p>
 
         {/* CTAs */}

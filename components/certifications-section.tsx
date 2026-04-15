@@ -101,7 +101,6 @@ function FlipCard({
                   key={skill}
                   className="font-mono text-xs text-muted-foreground"
                 >
-                  <span className="mr-2 text-accent">&mdash;</span>
                   {skill}
                 </li>
               ))}

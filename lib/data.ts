@@ -41,8 +41,8 @@ export const experiences: Experience[] = [
     period: "Summer 2026",
     logoId: "lumen",
     highlights: [
-      "Supporting enterprise network infrastructure, SD-WAN deployment, and firewall management across large-scale telecom systems",
-      "Incoming intern working on network security and infrastructure automation",
+      "Joining the enterprise network team to support SD-WAN deployment and firewall management across large-scale telecom infrastructure serving Fortune 500 clients.",
+      "Focused on network security operations, infrastructure automation, and Fixed Wireless Access systems in a production telecommunications environment.",
     ],
     status: "INCOMING",
   },
@@ -53,8 +53,8 @@ export const experiences: Experience[] = [
     period: "Jan 2026 — Present",
     logoId: "nasa",
     highlights: [
-      "Competitively selected for NASA admissions to contribute to mission-focused robotics and AI proposals aligned with NASA research objectives",
-      "Collaborating with cross-disciplinary teams on autonomous systems and aerospace mission concepts using engineering methodologies",
+      "Competitively selected through NASA admissions to contribute to mission-critical robotics and AI proposals aligned with active NASA research programs and aerospace objectives.",
+      "Collaborating with cross-disciplinary engineers to develop technical evaluations for advanced autonomous systems, synthesizing AI and aerospace methodologies into NASA-standard deliverables.",
     ],
     status: "ACTIVE",
   },
@@ -65,8 +65,8 @@ export const experiences: Experience[] = [
     period: "Aug 2025 — Present",
     logoId: "l3harris",
     highlights: [
-      "Built ML models for real-time satellite telemetry anomaly detection achieving 98% accuracy mapped to SPARTA and MITRE ATT&CK frameworks",
-      "Engineered secure data pipelines processing multi-GB time-series datasets from embedded aerospace systems for production-ready monitoring",
+      "Built ML models achieving 98% accuracy for real-time satellite telemetry anomaly detection, integrating threat detection and encrypted communications analysis mapped to SPARTA and MITRE ATT&CK frameworks.",
+      "Engineered secure data pipelines processing multi-GB time-series datasets from embedded aerospace systems, collaborating directly with L3Harris engineers on production-ready satellite security monitoring.",
     ],
     status: "ACTIVE",
   },
@@ -77,8 +77,8 @@ export const experiences: Experience[] = [
     period: "Sep 2025 — Jan 2026",
     logoId: "unc",
     highlights: [
-      "Led Smart Transit Greeley — route optimization algorithms analyzing commuting patterns across 114,000+ residents",
-      "Built Python ML models projecting 33% urban CO2 reduction; delivered policy recommendations directly to Greeley City Council",
+      "Led Smart Transit Greeley — developed route optimization algorithms analyzing commuting patterns across 114,000+ residents, with ML models projecting up to 33% reduction in urban CO2 emissions.",
+      "Delivered data-driven policy recommendations directly to the Greeley City Council, translating computational findings into actionable public transportation strategy.",
     ],
     status: "COMPLETED",
   },
