@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface ProfilePhotoProps {
@@ -10,46 +11,35 @@ interface ProfilePhotoProps {
 export function ProfilePhoto({ size = "md", className }: ProfilePhotoProps) {
   const sizeMap = {
     sm: "w-10 h-10",
-    md: "w-24 h-24",
-    lg: "w-36 h-36 md:w-44 md:h-44",
+    md: "w-28 h-28",
+    lg: "w-40 h-40 md:w-52 md:h-52",
   };
 
-  const fontSize = {
-    sm: "text-sm",
-    md: "text-2xl",
-    lg: "text-4xl md:text-5xl",
+  const imageSizes = {
+    sm: 40,
+    md: 112,
+    lg: 208,
   };
 
   return (
     <div
       className={cn(
-        "relative flex items-center justify-center overflow-hidden border-2 border-accent",
+        "relative overflow-hidden border-2 border-accent",
         sizeMap[size],
         className
       )}
       role="img"
-      aria-label="Uriel Mendoza profile photo placeholder"
-      style={{
-        clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
-        background: "linear-gradient(135deg, var(--accent) 0%, var(--background) 80%)",
-      }}
+      aria-label="Uriel Mendoza profile photo"
+      style={{ borderRadius: "50%" }}
     >
-      <span
-        className={cn(
-          "font-display tracking-tight text-background/90",
-          fontSize[size]
-        )}
-      >
-        UM
-      </span>
-
-      {/* Subtle inner glow */}
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          background:
-            "radial-gradient(circle at 30% 30%, var(--accent), transparent 70%)",
-        }}
+      <Image
+        src="/profile.jpeg"
+        alt="Uriel Mendoza"
+        width={imageSizes[size]}
+        height={imageSizes[size]}
+        className="h-full w-full object-cover"
+        priority={size === "lg"}
+        unoptimized
       />
     </div>
   );

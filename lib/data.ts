@@ -5,6 +5,7 @@ export interface Experience {
   period: string;
   highlights: string[];
   status: "INCOMING" | "ACTIVE" | "COMPLETED";
+  logoId: "lumen" | "nasa" | "l3harris" | "unc";
 }
 
 export interface Project {
@@ -38,6 +39,7 @@ export const experiences: Experience[] = [
     role: "Network Engineer Intern",
     location: "Denver, CO",
     period: "Summer 2026",
+    logoId: "lumen",
     highlights: [
       "Supporting enterprise network infrastructure, SD-WAN deployment, and firewall management across large-scale telecom systems",
       "Incoming intern working on network security and infrastructure automation",
@@ -49,6 +51,7 @@ export const experiences: Experience[] = [
     role: "Robotics & AI Team Member",
     location: "Remote",
     period: "Jan 2026 — Present",
+    logoId: "nasa",
     highlights: [
       "Competitively selected for NASA admissions to contribute to mission-focused robotics and AI proposals aligned with NASA research objectives",
       "Collaborating with cross-disciplinary teams on autonomous systems and aerospace mission concepts using engineering methodologies",
@@ -60,6 +63,7 @@ export const experiences: Experience[] = [
     role: "Student Researcher",
     location: "Remote",
     period: "Aug 2025 — Present",
+    logoId: "l3harris",
     highlights: [
       "Built ML models for real-time satellite telemetry anomaly detection achieving 98% accuracy mapped to SPARTA and MITRE ATT&CK frameworks",
       "Engineered secure data pipelines processing multi-GB time-series datasets from embedded aerospace systems for production-ready monitoring",
@@ -71,6 +75,7 @@ export const experiences: Experience[] = [
     role: "Climate Data Scientist",
     location: "Greeley, CO",
     period: "Sep 2025 — Jan 2026",
+    logoId: "unc",
     highlights: [
       "Led Smart Transit Greeley — route optimization algorithms analyzing commuting patterns across 114,000+ residents",
       "Built Python ML models projecting 33% urban CO2 reduction; delivered policy recommendations directly to Greeley City Council",
@@ -180,8 +185,8 @@ export const skillCategories: SkillCategory[] = [
 
 export const contactInfo = {
   email: "jeramiahblinks@gmail.com",
-  linkedin: "linkedin.com/in/uriel-mendoza",
-  github: "github.com/uriel-mendoza",
+  linkedin: "www.linkedin.com/in/uriel-mendoza-94t",
+  github: "github.com/Jeramiahmm",
   website: "mendozauriel.com",
   education: {
     school: "University of Colorado Boulder",

@@ -77,14 +77,14 @@ export function HeroBackground() {
       {/* Layer 1: 3D Morphing Wireframe */}
       <svg
         ref={wireframeRef}
-        className="absolute -right-20 top-1/2 -translate-y-1/2 opacity-[0.07]"
+        className="absolute -right-20 top-1/2 -translate-y-1/2 opacity-[0.30]"
         width="700"
         height="700"
         viewBox="0 0 400 400"
         fill="none"
       >
         {/* Icosahedron-like wireframe */}
-        <g stroke="var(--accent)" strokeWidth="0.5">
+        <g stroke="var(--accent)" strokeWidth="1.5">
           {/* Outer pentagon */}
           <polygon points="200,40 350,140 310,310 90,310 50,140" />
           {/* Inner pentagon (rotated) */}
@@ -108,18 +108,18 @@ export function HeroBackground() {
           <line x1="200" y1="200" x2="90" y2="310" strokeOpacity="0.4" />
           <line x1="200" y1="200" x2="50" y2="140" strokeOpacity="0.4" />
           {/* Floating vertices */}
-          <circle cx="200" cy="40" r="3" fill="var(--accent)" fillOpacity="0.3" />
-          <circle cx="350" cy="140" r="3" fill="var(--accent)" fillOpacity="0.3" />
-          <circle cx="310" cy="310" r="3" fill="var(--accent)" fillOpacity="0.3" />
-          <circle cx="90" cy="310" r="3" fill="var(--accent)" fillOpacity="0.3" />
-          <circle cx="50" cy="140" r="3" fill="var(--accent)" fillOpacity="0.3" />
-          <circle cx="200" cy="200" r="4" fill="var(--accent)" fillOpacity="0.5" />
+          <circle cx="200" cy="40" r="3" fill="var(--accent)" fillOpacity="0.6" />
+          <circle cx="350" cy="140" r="3" fill="var(--accent)" fillOpacity="0.6" />
+          <circle cx="310" cy="310" r="3" fill="var(--accent)" fillOpacity="0.6" />
+          <circle cx="90" cy="310" r="3" fill="var(--accent)" fillOpacity="0.6" />
+          <circle cx="50" cy="140" r="3" fill="var(--accent)" fillOpacity="0.6" />
+          <circle cx="200" cy="200" r="4" fill="var(--accent)" fillOpacity="0.8" />
         </g>
       </svg>
 
       {/* Layer 2: Flowing SVG Lines */}
       <svg
-        className="absolute inset-0 h-full w-full opacity-[0.1]"
+        className="absolute inset-0 h-full w-full opacity-[0.35]"
         preserveAspectRatio="none"
         viewBox="0 0 1440 900"
         fill="none"
@@ -128,28 +128,28 @@ export function HeroBackground() {
           className="hero-flow-line"
           d="M-100,200 C200,100 400,400 700,250 C1000,100 1200,350 1540,200"
           stroke="var(--accent)"
-          strokeWidth="1"
+          strokeWidth="1.5"
           fill="none"
         />
         <path
           className="hero-flow-line"
           d="M-100,450 C300,350 500,600 800,400 C1100,200 1300,500 1540,450"
           stroke="var(--accent)"
-          strokeWidth="0.8"
+          strokeWidth="1.2"
           fill="none"
         />
         <path
           className="hero-flow-line"
           d="M-100,650 C250,550 450,750 750,600 C1050,450 1250,700 1540,650"
           stroke="var(--accent)"
-          strokeWidth="0.6"
+          strokeWidth="1"
           fill="none"
         />
         <path
           className="hero-flow-line"
           d="M-100,100 C350,200 550,50 850,150 C1150,250 1350,100 1540,150"
           stroke="var(--accent)"
-          strokeWidth="0.5"
+          strokeWidth="0.8"
           fill="none"
         />
       </svg>
@@ -157,7 +157,7 @@ export function HeroBackground() {
       {/* Layer 3: Giant "UM" Outline Typography */}
       <svg
         ref={umRef}
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.04]"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.14]"
         width="100%"
         height="80vh"
         viewBox="0 0 500 300"
@@ -171,7 +171,7 @@ export function HeroBackground() {
           dominantBaseline="middle"
           className="font-display"
           stroke="var(--accent)"
-          strokeWidth="1"
+          strokeWidth="1.5"
           fill="none"
           style={{ fontSize: "280px", fontFamily: "var(--font-display)" }}
         >
