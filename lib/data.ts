@@ -15,6 +15,7 @@ export interface Project {
   colSpan: string;
   rowSpan: string;
   pattern: "neural" | "transit" | "orbital";
+  gitUrl: string;
 }
 
 export interface Certification {
@@ -53,8 +54,8 @@ export const experiences: Experience[] = [
     period: "Jan 2026 — Present",
     logoId: "nasa",
     highlights: [
-      "Competitively selected through NASA admissions to contribute to mission-critical robotics and AI proposals aligned with active NASA research programs and aerospace objectives.",
-      "Collaborating with cross-disciplinary engineers to develop technical evaluations for advanced autonomous systems, synthesizing AI and aerospace methodologies into NASA-standard deliverables.",
+      "Designed and proposed a $10,000 autonomous Mars rover system using 360-degree AEOS cameras and reinforcement learning for continuous terrain mapping without Earth command center intervention, presented directly to NASA engineers.",
+      "Engineered LIDAR-integrated navigation architecture with onboard decision-making, reducing mission cost and weight while eliminating signal-delay downtime through autonomous path planning.",
     ],
     status: "ACTIVE",
   },
@@ -87,30 +88,33 @@ export const experiences: Experience[] = [
 export const projects: Project[] = [
   {
     title: "NFL Stats Prediction Model",
-    tech: "Python / TensorFlow / XGBoost",
+    tech: "Python / TensorFlow / XGBoost / NVIDIA CUDA",
     description:
-      "{{87%}} prediction accuracy on NFL player performance using 5 years of historical data. Accelerated training {{8x}} — from 6 hours to 45 minutes — via NVIDIA GPU parallel computation.",
+      "{{87%}} prediction accuracy on NFL player performance using ensemble ML pipeline trained on 5 years of historical stats. XGBoost and deep neural network models combined via stacking. Accelerated training {{8x}} from 6 hours to 45 minutes using NVIDIA GPU parallel computation with TensorFlow CUDA backend.",
     colSpan: "md:col-span-2",
     rowSpan: "row-span-2",
     pattern: "neural",
+    gitUrl: "https://github.com/Jeramiahmm",
   },
   {
     title: "Smart Transit Greeley",
-    tech: "Python / ML / Route Optimization",
+    tech: "Python / Scikit-learn / Pandas / GeoPandas",
     description:
-      "Urban transit optimization for {{114,000+}} residents. ML-simulated ridership projecting {{33%}} CO2 reduction. Results delivered to Greeley City Council as actionable policy.",
+      "Urban transit optimization system for {{114,000+}} residents. Built ML models simulating ridership behavior and route efficiency, projecting {{33%}} CO2 reduction through data-driven restructuring. Findings presented as actionable policy recommendations directly to the Greeley City Council.",
     colSpan: "md:col-span-1",
     rowSpan: "row-span-2",
     pattern: "transit",
+    gitUrl: "https://github.com/Jeramiahmm",
   },
   {
     title: "Satellite Telemetry Anomaly Detection",
     tech: "Python / TensorFlow / SPARTA / MITRE ATT&CK",
     description:
-      "Real-time satellite anomaly detection at {{98%}} accuracy. Secure multi-GB data pipelines for embedded aerospace systems. Built in collaboration with L3Harris engineers.",
+      "Real-time anomaly detection system achieving {{98%}} accuracy on satellite telemetry streams. Processed multi-GB time-series datasets from embedded aerospace sensors through secure pipelines mapped to SPARTA and MITRE ATT&CK threat frameworks. Built in direct collaboration with L3Harris defense engineers.",
     colSpan: "md:col-span-3",
     rowSpan: "row-span-1",
     pattern: "orbital",
+    gitUrl: "https://github.com/Jeramiahmm",
   },
 ];
 
@@ -185,7 +189,7 @@ export const skillCategories: SkillCategory[] = [
 
 export const contactInfo = {
   email: "jeramiahblinks@gmail.com",
-  linkedin: "www.linkedin.com/in/uriel-mendoza-94t",
+  linkedin: "linkedin.com/in/uriel-mendoza-94t",
   github: "github.com/Jeramiahmm",
   website: "mendozauriel.com",
   education: {

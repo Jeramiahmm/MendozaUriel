@@ -17,21 +17,22 @@ const logoFiles: Record<string, string> = {
 // Company logo image with fallback
 function CompanyLogo({ id, company }: { id: string; company: string }) {
   const file = logoFiles[id] || `${id}.png`;
+  const initial = company.charAt(0);
   return (
     <div className="flex-shrink-0">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`/logos/${file}`}
         alt={`${company} logo`}
-        className="h-14 w-14 object-contain"
+        className="h-20 w-20 object-contain"
         onError={(e) => {
           e.currentTarget.style.display = "none";
           const fallback = e.currentTarget.nextElementSibling as HTMLElement;
           if (fallback) fallback.classList.remove("hidden");
         }}
       />
-      <div className="hidden h-14 w-14 flex items-center justify-center border border-accent/40 font-mono text-[10px] text-accent/60">
-        LOGO
+      <div className="hidden h-20 w-20 items-center justify-center border border-accent/30 font-display text-2xl text-accent/50">
+        {initial}
       </div>
     </div>
   );

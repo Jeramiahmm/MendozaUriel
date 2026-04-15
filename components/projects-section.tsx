@@ -217,12 +217,14 @@ function ProjectCard({
   tech,
   description,
   pattern,
+  gitUrl,
   className,
 }: {
   title: string;
   tech: string;
   description: string;
   pattern: "neural" | "transit" | "orbital";
+  gitUrl: string;
   className?: string;
 }) {
   const Pattern = PatternMap[pattern];
@@ -255,9 +257,18 @@ function ProjectCard({
           </p>
         </div>
 
-        {/* Hover indicator */}
-        <div className="mt-4 flex items-center gap-2">
-          <span className="h-[1px] w-0 bg-accent transition-all duration-300 group-hover:w-8" />
+        {/* GitHub link */}
+        <div className="mt-4 flex items-center gap-3">
+          <span className="h-[1px] w-0 bg-accent transition-all duration-300 group-hover:w-6" />
+          <a
+            href={gitUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground/50 transition-colors group-hover:text-accent"
+            aria-label={`View ${title} on GitHub`}
+          >
+            GitHub
+          </a>
         </div>
       </div>
     </div>
@@ -319,6 +330,7 @@ export function ProjectsSection() {
             tech={project.tech}
             description={project.description}
             pattern={project.pattern}
+            gitUrl={project.gitUrl}
             className={cn(project.colSpan, project.rowSpan)}
           />
         ))}
