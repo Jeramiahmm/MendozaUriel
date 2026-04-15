@@ -27,6 +27,8 @@ export function ProfilePhoto({ size = "md", className }: ProfilePhotoProps) {
         sizeMap[size],
         className
       )}
+      role="img"
+      aria-label="Uriel Mendoza profile photo placeholder"
       style={{
         clipPath: "polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%)",
         background: "linear-gradient(135deg, var(--accent) 0%, var(--background) 80%)",

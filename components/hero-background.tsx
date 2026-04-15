@@ -1,24 +1,38 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 
 export function HeroBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
   const wireframeRef = useRef<SVGSVGElement>(null);
   const umRef = useRef<SVGSVGElement>(null);
+  const tweensRef = useRef<gsap.core.Tween[]>([]);
+
+  // Pause infinite animations when tab is hidden
+  useEffect(() => {
+    const handleVisibility = () => {
+      tweensRef.current.forEach((t) => {
+        if (document.hidden) t.pause();
+        else t.resume();
+      });
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => document.removeEventListener("visibilitychange", handleVisibility);
+  }, []);
 
   useGSAP(
     () => {
       // Layer 1: Wireframe continuous rotation
       if (wireframeRef.current) {
-        gsap.to(wireframeRef.current, {
+        const t = gsap.to(wireframeRef.current, {
           rotation: 360,
           duration: 30,
           repeat: -1,
           ease: "none",
           transformOrigin: "center center",
         });
+        tweensRef.current.push(t);
       }
 
       // Layer 2: Flowing SVG lines — animate dashoffset
@@ -28,12 +42,13 @@ export function HeroBackground() {
           strokeDasharray: `${length * 0.3} ${length * 0.7}`,
           strokeDashoffset: 0,
         });
-        gsap.to(line, {
+        const t = gsap.to(line, {
           strokeDashoffset: -length,
           duration: 12 + i * 4,
           repeat: -1,
           ease: "none",
         });
+        tweensRef.current.push(t);
       });
 
       // Layer 3: Giant "UM" parallax
@@ -57,6 +72,7 @@ export function HeroBackground() {
     <div
       ref={containerRef}
       className="pointer-events-none absolute inset-0 overflow-hidden"
+      aria-hidden="true"
     >
       {/* Layer 1: 3D Morphing Wireframe */}
       <svg

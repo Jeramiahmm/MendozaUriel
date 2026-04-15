@@ -72,6 +72,7 @@ export function MobileNav() {
     <nav
       ref={navRef}
       className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 md:hidden"
+      style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}
       role="navigation"
       aria-label="Mobile section navigation"
     >
@@ -98,7 +99,7 @@ export function MobileNav() {
               )}
               style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }}
             />
-            <span className="font-mono text-[8px] uppercase tracking-[0.15em]">
+            <span className="font-mono text-[10px] uppercase tracking-[0.15em]">
               {label}
             </span>
           </button>

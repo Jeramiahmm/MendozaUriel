@@ -167,7 +167,7 @@ export function CertificationsSection() {
         CREDENTIALS
       </h2>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:max-w-3xl">
         {certifications.map((cert, i) => (
           <FlipCard key={cert.name} cert={cert} index={i} />
         ))}

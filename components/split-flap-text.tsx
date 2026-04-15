@@ -25,6 +25,7 @@ export function SplitFlapText({
   );
   const resolvedRef = useRef<boolean[]>(new Array(text.length).fill(false));
   const hasStarted = useRef(false);
+  const frameRef = useRef<number>(0);
 
   useEffect(() => {
     if (hasStarted.current) return;
@@ -38,7 +39,7 @@ export function SplitFlapText({
     const animate = (now: number) => {
       const elapsed = now - startTime;
       if (elapsed < 0) {
-        requestAnimationFrame(animate);
+        frameRef.current = requestAnimationFrame(animate);
         return;
       }
 
@@ -71,11 +72,13 @@ export function SplitFlapText({
       setDisplayText(current.join(""));
 
       if (!allResolved) {
-        requestAnimationFrame(animate);
+        frameRef.current = requestAnimationFrame(animate);
       }
     };
 
-    requestAnimationFrame(animate);
+    frameRef.current = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(frameRef.current);
   }, [text, delay, charDelay, duration]);
 
   return (

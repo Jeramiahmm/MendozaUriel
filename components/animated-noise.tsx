@@ -12,25 +12,15 @@ export function AnimatedNoise() {
     const turbulence = svg.querySelector("feTurbulence");
     if (!turbulence) return;
 
-    let frame: number;
     let seed = 0;
 
-    const animate = () => {
-      seed = (seed + 1) % 100;
-      turbulence.setAttribute("seed", String(seed));
-      frame = requestAnimationFrame(animate);
-    };
-
-    // Run at ~10fps for subtle grain effect
+    // Single update loop at ~10fps for subtle grain effect
     const interval = setInterval(() => {
       seed = (seed + 1) % 100;
       turbulence.setAttribute("seed", String(seed));
     }, 100);
 
-    return () => {
-      cancelAnimationFrame(frame);
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   return (
