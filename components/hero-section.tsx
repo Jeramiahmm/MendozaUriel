@@ -142,10 +142,10 @@ export function HeroSection() {
         {/* Body paragraph */}
         <p className="hero-bio mb-10 max-w-2xl font-mono text-xs leading-relaxed text-muted-foreground md:text-sm">
           Full-stack software engineer specializing in{" "}
-          <HighlightText>machine learning</HighlightText>, cloud infrastructure,
-          and security systems. NASA researcher, L3Harris collaborator, and
-          incoming engineer at Lumen Technologies. I build production systems
-          that protect, optimize, and scale.
+          <HighlightText>machine learning</HighlightText>, cloud, and security.
+          NASA L&apos;SPACE researcher, L3Harris machine learning researcher,
+          and incoming Network Engineer at Lumen Technologies. I build
+          production systems that protect, optimize, and scale.
         </p>
 
         {/* CTAs */}
