@@ -4,13 +4,16 @@ import { useRef, useState } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import { certifications } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/lib/use-mobile";
 
 function FlipCard({
   cert,
   index,
+  isMobile,
 }: {
   cert: (typeof certifications)[0];
   index: number;
+  isMobile: boolean;
 }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -24,12 +27,13 @@ function FlipCard({
   return (
     <div
       className="cert-card perspective-container h-[280px] md:h-[320px]"
-      onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
+      onClick={isMobile ? () => setIsFlipped((f) => !f) : undefined}
+      onMouseEnter={!isMobile ? () => setIsFlipped(true) : undefined}
+      onMouseLeave={!isMobile ? () => setIsFlipped(false) : undefined}
       onKeyDown={handleKeyDown}
       tabIndex={0}
       role="button"
-      aria-label={`${cert.name} by ${cert.issuer}. Press Enter to flip.`}
+      aria-label={`${cert.name} by ${cert.issuer}. ${isMobile ? "Tap" : "Press Enter"} to flip.`}
     >
       <div
         className={cn(
@@ -74,7 +78,7 @@ function FlipCard({
               {cert.date}
             </span>
             <span className="font-mono text-[9px] tracking-[0.2em] text-muted-foreground/50">
-              HOVER TO FLIP
+              {isMobile ? "TAP TO FLIP" : "HOVER TO FLIP"}
             </span>
           </div>
         </div>
@@ -130,6 +134,7 @@ function FlipCard({
 
 export function CertificationsSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
 
   useGSAP(
     () => {
@@ -168,7 +173,7 @@ export function CertificationsSection() {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:max-w-3xl">
         {certifications.map((cert, i) => (
-          <FlipCard key={cert.name} cert={cert} index={i} />
+          <FlipCard key={cert.name} cert={cert} index={i} isMobile={isMobile} />
         ))}
       </div>
     </section>

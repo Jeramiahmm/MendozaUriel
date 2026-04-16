@@ -3,15 +3,28 @@
 import { ReactLenis } from "lenis/react";
 import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "@/lib/gsap";
+import { useIsMobile } from "@/lib/use-mobile";
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<any>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
-    function update(time: number) {
-      lenisRef.current?.lenis?.raf(time * 1000);
+    if (isMobile) {
+      // On mobile, keep ScrollTrigger working with native scroll
+      const onScroll = () => ScrollTrigger.update();
+      window.addEventListener("scroll", onScroll, { passive: true });
+
+      const onResize = () => ScrollTrigger.refresh();
+      window.addEventListener("resize", onResize);
+
+      return () => {
+        window.removeEventListener("scroll", onScroll);
+        window.removeEventListener("resize", onResize);
+      };
     }
 
+    // Desktop: use Lenis
     const onScroll = () => {
       ScrollTrigger.update();
     };
@@ -30,7 +43,12 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       }
       window.removeEventListener("resize", onResize);
     };
-  }, []);
+  }, [isMobile]);
+
+  // Mobile: render children directly with native scrolling
+  if (isMobile) {
+    return <>{children}</>;
+  }
 
   return (
     <ReactLenis

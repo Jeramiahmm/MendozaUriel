@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
+import { useIsMobile } from "@/lib/use-mobile";
 import { AnimatedNoise } from "@/components/animated-noise";
 import { HeroBackground } from "@/components/hero-background";
 import { SplitFlapText } from "@/components/split-flap-text";
@@ -15,6 +16,7 @@ export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLButtonElement>(null);
+  const isMobile = useIsMobile();
 
   useMagneticHover(ctaRef, { strength: 0.2, radius: 120 });
 
@@ -23,18 +25,20 @@ export function HeroSection() {
       const content = contentRef.current;
       if (!content) return;
 
-      // Cinematic parallax fade-out on scroll
-      gsap.to(content, {
-        y: -150,
-        opacity: 0,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1,
-        },
-      });
+      // Cinematic parallax fade-out on scroll — desktop only
+      if (!isMobile) {
+        gsap.to(content, {
+          y: -150,
+          opacity: 0,
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
+          },
+        });
+      }
 
       // Stagger entrance sequence (cinematic timing)
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -85,7 +89,7 @@ export function HeroSection() {
         ease: "power2.inOut",
       });
     },
-    { scope: sectionRef }
+    { scope: sectionRef, dependencies: [isMobile] }
   );
 
   const scrollTo = (id: string) => {

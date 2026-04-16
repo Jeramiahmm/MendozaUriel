@@ -236,8 +236,8 @@ function ProjectCard({
         className
       )}
     >
-      {/* SVG Pattern */}
-      <div className="relative h-[40%] min-h-[120px] overflow-hidden opacity-60 transition-opacity duration-500 group-hover:opacity-100">
+      {/* SVG Pattern — hidden on mobile to reduce animations and save space */}
+      <div className="relative hidden h-[40%] min-h-[120px] overflow-hidden opacity-60 transition-opacity duration-500 group-hover:opacity-100 md:block">
         <Pattern />
       </div>
 

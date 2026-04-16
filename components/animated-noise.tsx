@@ -1,11 +1,15 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useIsMobile } from "@/lib/use-mobile";
 
 export function AnimatedNoise() {
   const svgRef = useRef<SVGSVGElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
+    if (isMobile) return;
+
     const svg = svgRef.current;
     if (!svg) return;
 
@@ -21,7 +25,10 @@ export function AnimatedNoise() {
     }, 100);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isMobile]);
+
+  // Hide on mobile — barely visible at 0.035 opacity and GPU-expensive
+  if (isMobile) return null;
 
   return (
     <svg
